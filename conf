@@ -1,6 +1,6 @@
 # config
 
-export CPU=1
+export CPU=4
 export MODE=auto
 export WALLET=
 export POOL=

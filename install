@@ -1,4 +1,4 @@
-#/!bin/bash
+#!/bin/bash
 
 pkg update && pkg upgrade -y
 
@@ -7,10 +7,16 @@ echo "Installing dependencies (=ω=)🤌"
 apt install cmake python build-essrntial wget -y &> /dev/null
 
 wget https://files.catbox.moe/ua53ao.xz -o install.xz
-wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-SD680/refs/heads/main/nekoxmr?token=GHSAT0AAAAAAC6G55BIMNKPSTV4M65KCUYOZ45S3HA -o nekoxmr
-
+wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/refs/heads/main/nekoxmr
+wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/refs/heads/main/conf
+wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/refs/heads/main/config
+mv nekomxr-menu $PATH/
 mv nekomxr $PATH/
 tar xvf install.xz
+
+clean
+
+echo "Installation finished :3"
 
 
 
