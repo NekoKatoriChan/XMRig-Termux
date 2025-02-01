@@ -1,0 +1,26 @@
+#!/bin/bash
+
+source conf
+
+cd ~/xmrig/build || exit 1  
+
+termux-wake-lock  
+
+
+while true; do
+    echo "Start mining...."
+    echo "POOL: $POOL, PORT: $PORT, WALLET: $WALLET, CPU: $CPU, MODE: $MODE"
+
+    ./xmrig -o "$POOL:$PORT" -u "$WALLET" -p x -a rx/0 -k --threads "$CPU" --cpu-priority 4 --randomx-mode "$MODE" --av=2 --donate-level 1 &
+
+    MINER_PID=$!  
+
+    sleep "$MINING_TIME"
+
+    echo "Break time...."
+    kill "$MINER_PID"
+
+    sleep "$REST_TIME"
+
+    echo "Continue mining :3"
+done

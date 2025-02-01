@@ -1,0 +1,27 @@
+#!/bin/bash
+
+start() {
+nekoxmr
+}
+
+config() {
+cd ~/xmrig-sd680/
+./config
+}
+
+
+echo "Welcome back, user!"
+
+echo "[1] Start mining"
+echo "[2] Settings"
+echo "[3] Exit"
+read -p "Your choice: " i
+
+case $i in
+
+1) start;;
+2) config;;
+
+esac
+
+

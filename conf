@@ -1,0 +1,9 @@
+# config
+
+export CPU=1
+export MODE=auto
+export WALLET=
+export POOL=
+export PORT=
+export REST=1600
+export MINE_TIME=3600
