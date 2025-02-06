@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#!/bin/bash
+
+confirmation_code=$(printf "%06d\n" $((RANDOM % 1000000)))
+clear
+read -p "Please enter confirmation code before uninstall $confirmation_code
+" a
+if [ "$a" = "$confirmation_code" ]; then
+echo "uninstalling..."
+rm -rf xmrig config conf $PATH/nekoxmr
+
+else
+echo "Error >.<"
+sleep 3
+clear
+fi
+

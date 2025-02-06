@@ -1,0 +1,24 @@
+#!/bin/bash
+
+pkg update && pkg upgrade -y
+
+echo "Installing dependencies (=ω=)🤌"
+
+apt install cmake python build-essential wget -y &> /dev/null
+
+echo "Building"
+git clone https://github.com/xmrig/xmrig.git
+cd xmrig
+mkdir build && cd build
+cmake -DWITH_HWLOC=OFF .. 
+make -j$(nproc)
+
+wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/nekoxmr
+wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/conf
+wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/config
+
+mv nekoxmr nekomxr-menu "$PREFIX/bin/"
+chmod +x "$PREFIX/bin/nekoxmr"
+
+
+echo "Installation finished :3"

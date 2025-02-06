@@ -1,13 +1,17 @@
 # XMRig for Termux
 
 ## what is this?
-just an XMR miner for Termux.
+just an scripts install XMR miner for Termux (use at your own risk lol)
 
 ## Installation
 
-copy this thing and paste it into Termux
+• copy this thing and paste it into Termux
 
 ``curl -O https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/refs/heads/main/install && bash install``
+
+• For full compatibility on Android
+
+``curl -O https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/refs/heads/main/install-comp && bash install-comp``
 
 ### How to use
 
