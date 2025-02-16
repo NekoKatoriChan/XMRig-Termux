@@ -22,23 +22,19 @@ echo "(6) Set mining time"
 echo "(7) Return"
 read -p "Your settings choice: " choice  # Thêm 'choice' vào đây
 
-# Xử lý lựa chọn của người dùng
 case $choice in
   1)
     read -p "Enter the number of CPUs you want to use: " CPU
-    # Thay đổi giá trị của biến trong tệp config bằng sed
     sed -i "s/^export CPU=.*/export CPU=$CPU/" conf
     echo "CPU usage set to $CPU"
     ;;
   2)
     read -p "Enter the Xrandom mode (auto/manual): " MODE
-    # Thay đổi giá trị của biến trong tệp config bằng sed
     sed -i "s/^export MODE=.*/export MODE=\"$MODE\"/" conf
     echo "Xrandom mode set to $MODE"
     ;;
   3)
     read -p "Enter your wallet address: " WALLET
-    # Thay đổi giá trị của biến trong tệp config bằng sed
     sed -i "s/^export WALLET=.*/export WALLET=\"$WALLET\"/" conf
     echo "Your wallet is set to $WALLET"
     ;;
@@ -46,20 +42,17 @@ case $choice in
     
     read -p "Enter the pool address: " POOL
     read -p "Enter the pool port: " PORT
-    # Thay đổi giá trị của biến trong tệp config bằng sed
     sed -i "s/^export POOL=.*/export POOL=\"$POOL\"/" conf
     sed -i "s/^export PORT=.*/export PORT=\"$PORT\"/" conf
     echo "Pool set to $POOL:$PORT"
     ;;
   5)
       read -p "Enter your rest time per session: " REST
-    # Thay đổi giá trị của biến trong tệp config bằng sed
     sed -i "s/^export REST=.*/export REST=\"$REST\"/" conf
     echo "Your Rest time is $REST after $MINE_TIME "
     ;;
     6)
         read -p "Enter your mining time: " MINE_TIME
-    # Thay đổi giá trị của biến trong tệp config bằng sed
     sed -i "s/^export MINE_TIME=.*/export MINE_TIME=\"$MINE_TIME\"/" conf
     echo "Your mining time is $MINE_TIME"
     ;;
