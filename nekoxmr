@@ -1,25 +1,26 @@
 #!/bin/bash
 
-source conf
+source conf || { echo "Lỗi: Không thể nạp file cấu hình!"; exit 1; }
 
-cd ~/xmrig/build || exit 1  
+cd ~/xmrig/build || { echo "Lỗi: Không thể vào thư mục build!"; exit 1; }
 
-termux-wake-lock  
+termux-wake-lock
 
+# Bẫy tín hiệu để dừng an toàn
+trap 'echo "Dừng mining..."; killall xmrig; termux-wake-unlock; exit 0' SIGINT SIGTERM
 
 while true; do
     echo "Start mining...."
-    
-    ./xmrig -o "$POOL:$PORT" -u "$WALLET" -p x -a rx/0 -k --threads "$CPU" --cpu-priority 4 --randomx-mode "$MODE" --av=2 --donate-level 1 &
 
-    MINER_PID=$!  
+    ./xmrig -o "$POOL:$PORT" -u "$WALLET" -p neko -a rx/0 -k --threads "$CPU" --cpu-priority "$CPU_P" --randomx-mode="$MODE" &
+    PID=$! # Lưu PID của xmrig
 
-    sleep $MINE_TIME
+    sleep "$MINE_TIME"
 
     echo "Break time...."
-    killall xmrig
+    kill "$PID" 2>/dev/null
 
-    sleep $REST
+    sleep "$REST"
 
     echo "Continue mining :3"
 done
