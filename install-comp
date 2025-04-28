@@ -12,12 +12,12 @@ cd xmrig
 mkdir build && cd build
 cmake -DWITH_HWLOC=OFF .. 
 make -j$(nproc)
-
+mv xmrig $PATH/xmrig
 wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/nekoxmr
 wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/conf
-wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/config
+wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/config -O $PATH/config
 
-mv nekoxmr nekomxr-menu "$PREFIX/bin/"
+mv nekoxmr "$PREFIX/bin/"
 chmod +x "$PREFIX/bin/nekoxmr"
 
 

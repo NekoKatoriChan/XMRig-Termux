@@ -20,7 +20,7 @@ echo "(4) Set pool"
 echo "(5) Set rest time"
 echo "(6) Set mining time"
 echo "(7) Return"
-read -p "Your settings choice: " choice  # Thêm 'choice' vào đây
+read -p "Your settings choice: " choice  
 
 case $choice in
   1)

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+source conf || { echo "Lỗi: Không thể nạp file cấu hình!"; exit 1; }
+
+termux-wake-lock
+
+trap 'echo "Stop mining..."; killall xmrig; termux-wake-unlock; exit 0' SIGINT SIGTERM
+
+while true; do
+    echo "Start mining...."
+
+    xmrig -o "$POOL:$PORT" -u "$WALLET" -p neko -a rx/0 -k --threads "$CPU" --cpu-priority "$CPU_P" --randomx-mode="$MODE" &
+    PID=$! # 
+
+    sleep "$MINE_TIME"
+
+    echo "Break time...."
+    kill "$PID" 2>/dev/null
+
+    sleep "$REST"
+
+    echo "Continue mining :3"
+done

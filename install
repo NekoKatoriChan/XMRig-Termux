@@ -4,17 +4,13 @@ pkg update && pkg upgrade -y
 
 echo "Installing dependencies (=ω=)🤌"
 
-apt install cmake python build-essential wget -y &> /dev/null
+apt install cmake python wget -y &> /dev/null
 
-wget https://files.catbox.moe/ua53ao.xz -O install.xz
-wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/nekoxmr
+wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/nekoxmr -O $PATH/nekoxmr
 wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/conf
-wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/config
+wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/config -O $PATH/nekoxmr-conf
+wget https://raw.githubusercontent.com/NekoKatoriChan/XMRig-Termux/main/xmrig -O $PATH/config
+chmod +x "$PREFIX/bin/nekoxmr" 
 
-mv nekoxmr nekomxr-menu "$PREFIX/bin/"
-chmod +x "$PREFIX/bin/nekoxmr" "$PREFIX/bin/nekomxr-menu"
-
-tar xvf install.xz
-rm -f install.xz
 
 echo "Installation finished :3"
